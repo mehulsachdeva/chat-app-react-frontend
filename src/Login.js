@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import ls from 'local-storage'
 
+import './Login.css';
+
 import Home from './Home';
 
 export default class Login extends Component {
@@ -12,7 +14,8 @@ export default class Login extends Component {
     this.state = {
       username: '',
       loggedIn: false,
-      message: '',
+      message_register: '',
+      message_login: ''
     }
   }
 
@@ -27,11 +30,11 @@ export default class Login extends Component {
     .then(res => {
       if(res.data === "success"){
         this.setState({
-          message: "Successfully Registered",
+          message_register: "Successfully Registered",
         })
       }else{
         this.setState({
-          message: "Error In Registration",
+          message_register: "Error In Registration",
         })
       }
     })
@@ -49,7 +52,7 @@ export default class Login extends Component {
         this.setState({
           username: this.refs.login_username.value,
           loggedIn: true,
-          message: ''
+          message_login: ''
         })
 
       }else{
@@ -58,7 +61,7 @@ export default class Login extends Component {
 
         this.setState({
           loggedIn: false,
-          message: "Invalid Credentials",
+          message_login: "Invalid Credentials",
         })
       }
     })
@@ -74,18 +77,21 @@ export default class Login extends Component {
       <div className="container">
 
         <div className="register">
+          <div className="header">REGISTER</div>
           <form method="post" name="register-form">
             <input type="text" ref="register_username" />
             <input type="submit" value="Register" onClick={this.registerUser} />
           </form>
+          <div className="message">{this.state.message_register}</div>
         </div>
 
         <div className="login">
+          <div className="header">LOGIN</div>
           <form method="post" name="login-form">
-              <input type="username" ref="login_username" />
+              <input type="text" ref="login_username" />
               <input type="submit" value="Login" onClick={this.authenticateUser} />
           </form>
-          <div className="message">{this.state.message}{this.state.error}</div>
+          <div className="message">{this.state.message_login}</div>
         </div>
       </div>
     );

@@ -3,6 +3,8 @@ import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 import ls from 'local-storage';
 
+import './Home.css';
+
 export default class Home extends Component {
 
   constructor(props){
@@ -93,17 +95,59 @@ export default class Home extends Component {
       return <Redirect to="/chat" />
     }
 
+    const status = (para1, para2) => {
+      if(para1 === "sentandseen"){
+        return(
+            <i className="fa fa-paper-plane"></i>
+        );
+      }
+      else if(para1 === "sentandunseen"){
+        return(
+            <i className="fa fa-paper-plane-o"></i>
+        );
+      }
+      else{
+        if(para2 !== "0"){
+          return(
+              <i className="fa fa-mail-reply"></i>
+          );
+        }else{
+          return(
+              <i className="fa fa-reply-all"></i>
+          );
+        }
+      }
+    }
+
+    const checkUnseen = (para1, para2, para3) => {
+      if(para1 !== "0"){
+        return(
+          <div className="lastmsg">
+            <div className="unseen">{para1}</div>
+            <div className="msg">{status(para2, para1)} {para3}</div>
+          </div>
+        );
+      }else{
+        return(
+          <div className="lastmsg-seen">
+            <div className="msg-seen">{status(para2, para1)} {para3}</div>
+          </div>
+        );
+      }
+    }
+
     return(
       <div className="container">
 
-          <div className="user-logined">{this.state.username}</div>
-
-          <div>
-            <Link to="/logout">Logout</Link>
+          <div className="nav-bar">
+            <div className="user-logined">Hello, {this.state.username}</div>
+            <div className="link">
+              <Link to="/logout" style={{ textDecoration: 'none', color: 'white' }}>Logout</Link>
+            </div>
           </div>
 
-          <div>
-            <input type="text" ref="to_username" />
+          <div className="find-user">
+            <input type="text" ref="to_username" placeholder="Find User In Database"/>
             <input type="submit" value="Find" onClick={this.findUsername}/>
           </div>
 
@@ -115,9 +159,8 @@ export default class Home extends Component {
                 return(
 
                   <div key={i} className="shortened-chat-box">
-                    <div>{user.username}</div>
-                    <div>Unseen: {user.unseen}</div>
-                    <div>Last Message: {user.lastmsg} ({user.status})</div>
+                    <div className="username">{user.username}</div>
+                    {checkUnseen(user.unseen, user.status, user.lastmsg)}
                     <button id={user.username} onClick={this.viewChat}>Chat</button>
                   </div>
 

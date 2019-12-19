@@ -1,0 +1,63 @@
+.container {
+  padding: 10px;
+  text-align: center;
+}
+
+.container .register {
+  width: 300px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: inline-block;
+  margin-top: 10%;
+}
+
+.container .login {
+  width: 300px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: inline-block;
+}
+
+.container .register .header, .container .login .header {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.container .register input[type=text], .container .login input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.container .register input[type=submit], .container .login input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.container .register input[type=submit]:hover, .container .register input[type=submit]:hover {
+  background-color: #2ECC71;
+}
+
+.container .register .message, .container .login .message {
+  font-size: 16px;
+  color: red;
+  position: fixed;
+  margin-top: 10px;
+  margin-left: 6%;
+}

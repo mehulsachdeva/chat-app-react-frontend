@@ -1,0 +1,130 @@
+.container .nav-bar {
+  background-color: #3498DB;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  position: fixed;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: -10px;
+  margin-top: -10px;
+  text-align: right;
+}
+
+.nav-bar .link {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.nav-bar .user-logined {
+  display: inline-block;
+}
+
+.find-user input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.find-user input[type=submit] {
+  width: 5%;
+  background-color: #2E86C1;
+  color: white;
+  padding: 14px 19px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.find-user input[type=submit]:hover {
+  background-color: #5DADE2;
+}
+
+.container .message {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+  margin-left: 22.5%;
+}
+
+.chat-lists {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.chat-lists .shortened-chat-box {
+  width: 60%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+.shortened-chat-box .username {
+  text-align: left;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.lastmsg {
+  width: 20%;
+  text-align: left;
+}
+
+.lastmsg-seen {
+  width: 20%;
+  text-align: left;
+  margin-left: -30px;
+}
+
+.unseen {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: white;
+  line-height: 27px;
+  text-align: center;
+  background: #28B463;
+  position: absolute;
+  margin-left: 15px;
+}
+
+.msg {
+  margin-top: 15px;
+  margin-left: 50px;
+  color: #28B463;
+  font-weight: bold;
+}
+
+.msg-seen {
+  margin-top: 15px;
+  margin-left: 50px;
+}
+
+button {
+  background: #E74C3C;
+  padding: 10px;
+  font-size: 14px;
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover{
+  background: #C0392B;
+}
