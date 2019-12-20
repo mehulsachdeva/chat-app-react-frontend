@@ -147,7 +147,7 @@ export default class Home extends Component {
           </div>
 
           <div className="find-user">
-            <input type="text" ref="to_username" placeholder="Find User In Database"/>
+            <input type="text" ref="to_username" placeholder="Find User In Database..."/>
             <input type="submit" value="Find" onClick={this.findUsername}/>
           </div>
 
@@ -160,7 +160,9 @@ export default class Home extends Component {
 
                   <div key={i} className="shortened-chat-box">
                     <div className="username">{user.username}</div>
-                    {checkUnseen(user.unseen, user.status, user.lastmsg)}
+                    {
+                      checkUnseen(user.unseen, user.status, user.lastmsg)
+                    }
                     <button id={user.username} onClick={this.viewChat}>Chat</button>
                   </div>
 

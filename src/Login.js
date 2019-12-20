@@ -32,9 +32,10 @@ export default class Login extends Component {
         this.setState({
           message_register: "Successfully Registered",
         })
+        this.refs.register_username.value = "";
       }else{
         this.setState({
-          message_register: "Error In Registration",
+          message_register: "Username Already Exists!",
         })
       }
     })
@@ -79,7 +80,7 @@ export default class Login extends Component {
         <div className="register">
           <div className="header">REGISTER</div>
           <form method="post" name="register-form">
-            <input type="text" ref="register_username" />
+            <input type="text" ref="register_username" placeholder="Username" />
             <input type="submit" value="Register" onClick={this.registerUser} />
           </form>
           <div className="message">{this.state.message_register}</div>
@@ -88,7 +89,7 @@ export default class Login extends Component {
         <div className="login">
           <div className="header">LOGIN</div>
           <form method="post" name="login-form">
-              <input type="text" ref="login_username" />
+              <input type="text" ref="login_username" placeholder="Username"/>
               <input type="submit" value="Login" onClick={this.authenticateUser} />
           </form>
           <div className="message">{this.state.message_login}</div>
